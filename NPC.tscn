@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://NPC.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
@@ -78,3 +79,6 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 3 )
+
+[node name="icon" type="Sprite" parent="."]
+texture = ExtResource( 2 )
