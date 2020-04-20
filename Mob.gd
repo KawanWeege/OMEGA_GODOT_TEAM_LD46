@@ -40,31 +40,15 @@ func _ready():
 
 # MOVEMENT (might be best to move to physics?)
 func _process(delta):
-	if track_cursor:
-		target_position = get_global_mouse_position()
-	var dist = global_position.distance_to(target_position)
-	
-	if dist < DISTANCE_THRESHOLD:
-		emit_signal("mob_stopped_movement")
-		return
-	
-	_velocity = Steering.arrive_to(
-		_velocity,
-		global_position,
-		target_position,
-		max_speed,
-		slow_radius)
-	
-	self.position += _velocity * delta
+	pass
 
 
 func _unhandled_input(event):
 	# Mouse steering.
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("click"): # Follow cursor.
-			track_cursor = true
+			position = get_global_mouse_position()
 			set_process(true)
-			emit_signal("mob_started_movement")
 		if event.is_action_released("click"): # Reach click point.
 			# A target object may be placed on map upon mouse release.
 			track_cursor = false
